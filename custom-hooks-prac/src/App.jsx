@@ -1,7 +1,9 @@
 import useTodos from "./hooks/useTodos";
 
 function App() {
-  const todos = useTodos();
+  const { todos, loading } = useTodos();
+
+  if (loading) return <div>loading ....</div>;
 
   return (
     <>
