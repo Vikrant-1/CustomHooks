@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 // function components state based
@@ -34,13 +34,40 @@ import "./App.css";
 //   }
 // }
 
+// life cycle event
+// function MyCompnent() {
+//   useEffect(() => {
+//     console.error("component mounted");
+//     return () => {
+//       console.log("component unmounted");
+//     };
+//   }, []);
+
+//   return <div>Function component</div>;
+// }
+
+class MyCompnent2 extends React.Component {
+  componentDidMount() {
+    console.log("Mounted");
+  }
+
+  componentWillUnmount() {
+    console.log("unmount");
+  }
+  render() {
+    return <div>Hi there</div>;
+  }
+}
+
 function App() {
-  return (
-    <>
-      <MyCompnent />
-      <MyCompnent2 />
-    </>
-  );
+  const [show, setShow] = useState(true);
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setShow((r) => !r);
+  //   }, 5000);
+  // }, []);
+  return <>{show ? <MyCompnent2 /> : <div></div>}</>;
 }
 
 export default App;
