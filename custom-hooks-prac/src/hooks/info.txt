@@ -1,0 +1,4 @@
+Hooks that you create yourself.
+It is function contain below properties
+1. Uses another hooks internally
+2. always starts with use
