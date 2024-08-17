@@ -1,7 +1,13 @@
+import useIsOnline from "./hooks/useIsOnline";
 import useTodos from "./hooks/useTodos";
 
 function App() {
   const { todos, loading } = useTodos();
+  const isOnline = useIsOnline();
+
+  if (!isOnline) {
+    return <div>Your are {isOnline ? "Online" : "Offline"}</div>;
+  }
 
   if (loading) return <div>loading ....</div>;
 
